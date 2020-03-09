@@ -1,0 +1,25 @@
+{
+    "name": "bssv",
+    "displayName": "bssv",
+    "description": "Support for bssv data files.",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.42.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "bssv",
+            "aliases": ["bssv", "bssv"],
+            "extensions": ["bssv"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "bssv",
+            "scopeName": "source.bssv",
+            "path": "./syntaxes/bssv.tmLanguage.json"
+        }]
+    }
+}
