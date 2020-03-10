@@ -3,29 +3,85 @@
 	"name": "bssv",
 	"patterns": [
 		{
-			"include": "#keywords"
+			"include": "#comment"
 		},
 		{
-			"include": "#strings"
+			"include": "#block"
+		},
+		{
+			"include": "#data"
+		},
+		{
+			"include": "#invalid"
 		}
 	],
 	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.bssv",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
-		},
-		"strings": {
-			"name": "string.quoted.double.bssv",
-			"begin": "\"",
-			"end": "\"",
+		"comment": {
 			"patterns": [
 				{
-					"name": "constant.character.escape.bssv",
-					"match": "\\\\."
+					"name": "comment.line.double-slash.bssv",
+					"begin": "\\s*//",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.comment.bssv"
+						}
+					},
+					"end": "$"
 				}
 			]
+		},
+		"block": {
+			"name": "constant.other.block.bssv",
+			"begin": "^\\[([^\\]]+)\\]",
+			"beginCaptures": {
+				"1": {
+					"name": "markup.bold.caption.bssv"
+				}
+			},
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#comment"
+				},
+				{
+					"include": "#header"
+				},
+				{
+					"include": "#invalid"
+				}
+			]
+		},
+		"data": {
+			"name": "constant.other.data.bssv",
+			"begin": "^(?!\\[)(?=.)",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#comment"
+				},
+				{
+					"include": "#strings"
+				},
+				{
+					"include": "#seperator"
+				},
+				{
+					"include": "#invalid"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.unquoted.bssv",
+			"match": "(?!\\s)(\\s*([^;\\s\\[/]|/(?!/))+)+"
+		},
+		"seperator": {
+			"name": "keyword.operator.bssv",
+			"match": "\\s*;\\s*"
+		},
+		"invalid": {
+			"comment": "invalid",
+			"match": ".*",
+			"name": "invalid.illegal.unknown.bssv"
 		}
 	},
 	"scopeName": "source.bssv"
