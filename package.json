@@ -9,6 +9,11 @@
     "categories": [
         "Programming Languages"
     ],
+	"publisher": "generik",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/generikvault/bssv"
+	},
     "contributes": {
         "languages": [{
             "id": "bssv",
