@@ -25,3 +25,4 @@ cell one;   cell two; cell three
 
 - Syntax highlighting
 - Formatter
+- Statusbar information
