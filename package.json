@@ -2,29 +2,38 @@
     "name": "bssv",
     "displayName": "bssv",
     "description": "Support for bssv data files.",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "engines": {
         "vscode": "^1.42.0"
     },
     "categories": [
         "Programming Languages"
     ],
-	"publisher": "generik",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/generikvault/bssv"
-	},
+    "publisher": "generik",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/generikvault/bssv"
+    },
     "contributes": {
-        "languages": [{
-            "id": "bssv",
-            "aliases": ["bssv", "bssv"],
-            "extensions": ["bssv"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "bssv",
-            "scopeName": "source.bssv",
-            "path": "./syntaxes/bssv.tmLanguage.json"
-        }]
+        "languages": [
+            {
+                "id": "bssv",
+                "aliases": [
+                    "bssv",
+                    "bssv"
+                ],
+                "extensions": [
+                    "bssv"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "bssv",
+                "scopeName": "source.bssv",
+                "path": "./syntaxes/bssv.tmLanguage.json"
+            }
+        ]
     }
 }
