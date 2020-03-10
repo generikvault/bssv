@@ -24,3 +24,4 @@ cell one;   cell two; cell three
 ## Features
 
 - Syntax highlighting
+- Formatter
