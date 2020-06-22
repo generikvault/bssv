@@ -25,4 +25,5 @@ cell one;   cell two; cell three
 
 - Syntax highlighting
 - Formatter
-- Statusbar information
+- Statusbar column information
+- Block symbols

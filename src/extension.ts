@@ -1,10 +1,12 @@
 import * as vscode from 'vscode';
+import Provider from './provider';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(
 		vscode.languages.registerDocumentFormattingEditProvider('bssv', new Formatter()),
+		vscode.languages.registerDocumentSymbolProvider({language: 'bssv'}, new Provider()),
 		new StatusBarCollInfo(),
 	);
 }
@@ -97,22 +99,20 @@ class StatusBarCollInfo implements vscode.Disposable {
 			.split(";")
 			.length - 1
 
-		var colname = ""
-
 		while (l > 0) {
 			l --;
 			var line = document
 				.lineAt(l)
 				.text
 			if (line.startsWith("["))
-				return line.substring(1, line.indexOf("]")) + colname
+				break
 			var isAnnotation = line.endsWith("@Header")
 			if(!isAnnotation)
 				continue
 			var commentStart = line.indexOf("//", line.indexOf("//") + 2)
 			var contentLength = commentStart < 0 ? line.length : commentStart
 			var cells = line.substring(0, contentLength).split(";")
-			colname = " - " + (cells[cellId] ?? "").replace("//", "").trim()
+			return (cells[cellId] ?? "").replace("//", "").trim()
 		}
 		return ""
 	}
