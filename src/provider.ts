@@ -34,6 +34,12 @@ export default class Provider implements vscode.DocumentSymbolProvider {
             last = new vscode.Position(i, line.length)
 
         }
+        if (name !== "")
+            symbols.push(new vscode.DocumentSymbol(name,
+                'BSSV Block',
+                vscode.SymbolKind.Class,
+                new vscode.Range(new vscode.Position(start, 0), last),
+                new vscode.Range(new vscode.Position(start, 1), new vscode.Position(start, 1 + name.length))))
         return symbols
     }
 
