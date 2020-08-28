@@ -2,7 +2,7 @@
     "name": "bssv",
     "displayName": "bssv",
     "description": "Support for bssv data files.",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "engines": {
         "vscode": "^1.42.0"
     },
