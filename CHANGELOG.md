@@ -4,6 +4,12 @@ All notable changes to the "bssv" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.1.2] - 2020-08-28
+
+### Added
+
+- Added extension icon
+
 ## [1.1.1] - 2020-08-28
 
 ### Fixed
