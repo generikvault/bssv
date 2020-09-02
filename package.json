@@ -2,7 +2,7 @@
     "name": "bssv",
     "displayName": "bssv",
     "description": "Support for bssv data files.",
-    "version": "1.1.2",
+    "version": "1.2.0",
     "engines": {
         "vscode": "^1.42.0"
     },
@@ -70,21 +70,21 @@
                 }
             ]
         },
-		"keybindings": [
-			{
-				"command": "bssv.selectColumn",
-				"key": "ctrl+shift+a",
-				"when": "editorLangId == bssv && editorTextFocus"
+        "keybindings": [
+            {
+                "command": "bssv.selectColumn",
+                "key": "ctrl+shift+a",
+                "when": "editorLangId == bssv && editorTextFocus"
             },
-			{
-				"command": "bssv.moveColumnLeft",
-				"key": "ctrl+alt+shift+left",
-				"when": "editorLangId == bssv && editorTextFocus"
+            {
+                "command": "bssv.moveColumnLeft",
+                "key": "ctrl+alt+shift+left",
+                "when": "editorLangId == bssv && editorTextFocus"
             },
-			{
-				"command": "bssv.moveColumnRight",
-				"key": "ctrl+alt+shift+right",
-				"when": "editorLangId == bssv && editorTextFocus"
+            {
+                "command": "bssv.moveColumnRight",
+                "key": "ctrl+alt+shift+right",
+                "when": "editorLangId == bssv && editorTextFocus"
             }
         ]
     },
