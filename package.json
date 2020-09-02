@@ -39,6 +39,53 @@
                 "scopeName": "source.bssv",
                 "path": "./syntaxes/bssv.tmLanguage.json"
             }
+        ],
+        "commands": [
+            {
+                "command": "bssv.selectColumn",
+                "title": "Select a column of the current bssv block"
+            },
+            {
+                "command": "bssv.moveColumnLeft",
+                "title": "Move a column of the current bssv block to the left"
+            },
+            {
+                "command": "bssv.moveColumnRight",
+                "title": "Move a column of the current bssv block to the the right"
+            }
+        ],
+        "menus": {
+            "commandPalette": [
+                {
+                    "command": "bssv.selectColumn",
+                    "when": "editorLangId == bssv"
+                },
+                {
+                    "command": "bssv.moveColumnLeft",
+                    "when": "editorLangId == bssv"
+                },
+                {
+                    "command": "bssv.moveColumnRight",
+                    "when": "editorLangId == bssv"
+                }
+            ]
+        },
+		"keybindings": [
+			{
+				"command": "bssv.selectColumn",
+				"key": "ctrl+shift+a",
+				"when": "editorLangId == bssv && editorTextFocus"
+            },
+			{
+				"command": "bssv.moveColumnLeft",
+				"key": "ctrl+alt+shift+left",
+				"when": "editorLangId == bssv && editorTextFocus"
+            },
+			{
+				"command": "bssv.moveColumnRight",
+				"key": "ctrl+alt+shift+right",
+				"when": "editorLangId == bssv && editorTextFocus"
+            }
         ]
     },
     "scripts": {

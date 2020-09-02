@@ -4,6 +4,14 @@ All notable changes to the "bssv" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.2.0] - 2020-09-02
+
+### Added
+
+- Added move column left command
+- Added move column right command
+- Added select column
+
 ## [1.1.2] - 2020-08-28
 
 ### Added

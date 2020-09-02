@@ -1,14 +1,31 @@
 import * as vscode from 'vscode';
 import Provider from './provider';
+import * as col from './col';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(
 		vscode.languages.registerDocumentFormattingEditProvider('bssv', new Formatter()),
-		vscode.languages.registerDocumentSymbolProvider({language: 'bssv'}, new Provider()),
+		vscode.languages.registerDocumentSymbolProvider({ language: 'bssv' }, new Provider()),
 		new StatusBarCollInfo(),
+		inEditor("bssv.selectColumn", col.selectCol),
+		inEditor("bssv.moveColumnLeft", col.moveColLeft),
+		inEditor("bssv.moveColumnRight", col.moveColRight),
 	);
+}
+
+function inEditor(name: string, fn: (editor: vscode.TextEditor) => void): vscode.Disposable {
+	let cmd = () => {
+		let editor = vscode.window.activeTextEditor;
+
+		if (editor == null) {
+			return;
+		}
+		fn(editor)
+	}
+
+	return vscode.commands.registerCommand(name, cmd)
 }
 
 // this method is called when your extension is deactivated
@@ -68,7 +85,7 @@ class StatusBarCollInfo implements vscode.Disposable {
 	private statusBarItem: vscode.StatusBarItem
 
 	constructor() {
-		
+
 		this.statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 0);
 		this.disposables.push(
 			vscode.window.onDidChangeTextEditorSelection(e => this.update(e.textEditor)),
@@ -100,14 +117,14 @@ class StatusBarCollInfo implements vscode.Disposable {
 			.length - 1
 
 		while (l > 0) {
-			l --;
+			l--;
 			var line = document
 				.lineAt(l)
 				.text
 			if (line.startsWith("["))
 				break
 			var isAnnotation = line.endsWith("@Header")
-			if(!isAnnotation)
+			if (!isAnnotation)
 				continue
 			var commentStart = line.indexOf("//", line.indexOf("//") + 2)
 			var contentLength = commentStart < 0 ? line.length : commentStart
