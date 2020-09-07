@@ -72,7 +72,7 @@
 		},
 		"strings": {
 			"name": "string.unquoted.bssv",
-			"match": "(?!\\s)(\\s*([^;\\s\\[/]|/(?!/))+)+"
+			"match": "(?!\\s)(\\s*([^;\\s/]|/(?!/))+)+"
 		},
 		"seperator": {
 			"name": "keyword.operator.bssv",
