@@ -4,6 +4,12 @@ All notable changes to the "bssv" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.3.0] - 2021-11-18
+
+### Added
+
+- Changed table formating style in order to align semicolons
+
 ## [1.2.0] - 2020-09-02
 
 ### Added

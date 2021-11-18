@@ -34,37 +34,36 @@ export function deactivate() { }
 class Formatter {
 
 	public provideDocumentFormattingEdits(document: vscode.TextDocument): vscode.TextEdit[] {
-		var { lineCount, lineAt } = document
-		var cellStarts: number[] | undefined = undefined
-		var delta: vscode.TextEdit[] = []
-		for (var i = 0; i < lineCount; i++) {
-			var line = lineAt(i).text
+		let { lineCount, lineAt } = document
+		let cellStarts: number[] | undefined = undefined
+		let delta: vscode.TextEdit[] = []
+		for (let i = 0; i < lineCount; i++) {
+			let line = lineAt(i).text
 			if (line.substring(0, 1) === "[") {
 				cellStarts = undefined
 				continue
 			}
-			var isAnnotation = line.endsWith("@Header")
-			var commentStart = line.indexOf("//", isAnnotation ? line.indexOf("//") + 2 : 0)
-			var contentLength = commentStart < 0 ? line.length : commentStart
-			var cells = line.substring(0, contentLength).split(";")
+			let isAnnotation = line.endsWith("@Header")
+			let commentStart = line.indexOf("//", isAnnotation ? line.indexOf("//") + 2 : 0)
+			let contentLength = commentStart < 0 ? line.length : commentStart
+			let cells = line.substring(0, contentLength).split(";")
 			if (cells.length === 1)
 				continue
 
 			if (isAnnotation || !cellStarts) {
-				var leftTrimed = cells.map(s => s.trimLeft())
-				var pos = 0
+				let leftTrimed = cells.map(s => s.trimLeft())
+				let pos = 0
 				cellStarts = []
-				for (var j = 1; j < cells.length; j++) {
+				for (let j = 1; j < cells.length; j++) {
 					pos += cells[j - 1].length + 1
 					cellStarts[j] = pos + cells[j].length - leftTrimed[j].length
 				}
-				continue
 			}
-			var formated = cells[0].trim()
-			for (var j = 1; j < cells.length; j++) {
-				formated += "; "
-				while (formated.length < cellStarts[j] ?? 0)
+			let formated = cells[0].trim()
+			for (let j = 1; j < cells.length; j++) {
+				while (formated.length + 2 < cellStarts[j] ?? 0)
 					formated += " "
+				formated += "; "
 				formated += cells[j].trim()
 			}
 			formated = formated.trimRight()
@@ -98,37 +97,37 @@ class StatusBarCollInfo implements vscode.Disposable {
 	}
 
 	private colname(editor: vscode.TextEditor): string {
-		var { document } = editor
-		var { active } = editor.selection
-		var l = active.line
-		var line = document
+		let { document } = editor
+		let { active } = editor.selection
+		let l = active.line
+		let line = document
 			.lineAt(l)
 			.text
-		var commentStart = line.indexOf("//")
-		var contentLength = commentStart < 0 ? line.length : commentStart
+		let commentStart = line.indexOf("//")
+		let contentLength = commentStart < 0 ? line.length : commentStart
 		if (active.character > contentLength)
 			return ""
-		var content = line.substring(0, contentLength)
+		let content = line.substring(0, contentLength)
 		if (content.indexOf(";") < 0)
 			return ""
-		var cellId = content
+		let cellId = content
 			.substring(0, active.character)
 			.split(";")
 			.length - 1
 
 		while (l > 0) {
 			l--;
-			var line = document
+			let line = document
 				.lineAt(l)
 				.text
 			if (line.startsWith("["))
 				break
-			var isAnnotation = line.endsWith("@Header")
+			let isAnnotation = line.endsWith("@Header")
 			if (!isAnnotation)
 				continue
-			var commentStart = line.indexOf("//", line.indexOf("//") + 2)
-			var contentLength = commentStart < 0 ? line.length : commentStart
-			var cells = line.substring(0, contentLength).split(";")
+			let commentStart = line.indexOf("//", line.indexOf("//") + 2)
+			let contentLength = commentStart < 0 ? line.length : commentStart
+			let cells = line.substring(0, contentLength).split(";")
 			return (cells[cellId] ?? "").replace("//", "").trim()
 		}
 		return ""
