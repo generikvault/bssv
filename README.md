@@ -1,22 +1,18 @@
-# bssv README
+# prov README
 
-bssv is a text based data format. It's structured like this:
+prov is a text based data format. It's structured like this:
 
 ```text
-[initial block]
+# table one ; column two ; column three
 
-// some comments
-
-[block one]
-
-cell one;   cell two; cell three // some comment
-cell one;   cell two; cell three
+cell one    ; cell two   ; cell three // some comment
+cell one    ; cell two   ; cell three
 ...
 
-[block two]
+# table two ; column two ; column three
 
-cell one;   cell two; cell three // some comment
-cell one;   cell two; cell three
+cell one    ; cell two   ; cell three // some comment
+cell one    ; cell two   ; cell three
 
 ...
 ```

@@ -1,10 +1,10 @@
 {
-    "name": "bssv",
-    "displayName": "bssv",
-    "description": "Support for bssv data files.",
-    "version": "1.3.0",
+    "name": "prov",
+    "displayName": "prov",
+    "description": "Support for prov data files.",
+    "version": "0.1.0",
     "engines": {
-        "vscode": "^1.62.0"
+        "vscode": "^1.82.0"
     },
     "categories": [
         "Programming Languages",
@@ -13,78 +13,75 @@
     "publisher": "generik",
     "repository": {
         "type": "git",
-        "url": "https://github.com/generikvault/bssv"
+        "url": "https://github.com/generikvault/prov"
     },
     "icon": "icon.png",
-    "activationEvents": [
-        "onLanguage:bssv"
-    ],
     "main": "./out/extension.js",
     "contributes": {
         "languages": [
             {
-                "id": "bssv",
+                "id": "prov",
                 "aliases": [
-                    "bssv"
+                    "prov"
                 ],
                 "extensions": [
-                    "bssv"
+                    "prov"
                 ],
                 "configuration": "./language-configuration.json"
             }
         ],
         "grammars": [
             {
-                "language": "bssv",
-                "scopeName": "source.bssv",
-                "path": "./syntaxes/bssv.tmLanguage.json"
+                "language": "prov",
+                "scopeName": "source.prov",
+                "path": "./syntaxes/prov.tmLanguage.json"
             }
         ],
         "commands": [
             {
-                "command": "bssv.selectColumn",
-                "title": "Select a column of the current bssv block"
+                "command": "prov.selectColumn",
+                "title": "Select a column of the current prov block"
             },
             {
-                "command": "bssv.moveColumnLeft",
-                "title": "Move a column of the current bssv block to the left"
+                "command": "prov.moveColumnLeft",
+                "title": "Move a column of the current prov block to the left"
             },
             {
-                "command": "bssv.moveColumnRight",
-                "title": "Move a column of the current bssv block to the the right"
+                "command": "prov.moveColumnRight",
+                "title": "Move a column of the current prov block to the the right"
             }
         ],
         "menus": {
             "commandPalette": [
                 {
-                    "command": "bssv.selectColumn",
-                    "when": "editorLangId == bssv"
+                    "command": "prov.selectColumn",
+                    "when": "editorLangId == prov"
                 },
                 {
-                    "command": "bssv.moveColumnLeft",
-                    "when": "editorLangId == bssv"
+                    "command": "prov.moveColumnLeft",
+                    "when": "editorLangId == prov"
                 },
                 {
-                    "command": "bssv.moveColumnRight",
-                    "when": "editorLangId == bssv"
+                    "command": "prov.moveColumnRight",
+                    "when": "editorLangId == prov"
                 }
             ]
         },
         "keybindings": [
             {
-                "command": "bssv.selectColumn",
+                "command": "prov.selectColumn",
                 "key": "ctrl+shift+a",
-                "when": "editorLangId == bssv && editorTextFocus"
+                "when": "editorLangId == prov && editorTextFocus"
             },
             {
-                "command": "bssv.moveColumnLeft",
+                "command": "prov.moveColumnLeft",
                 "key": "ctrl+alt+shift+left",
-                "when": "editorLangId == bssv && editorTextFocus"
+                "when": "editorLangId == prov && editorTextFocus"
             },
             {
-                "command": "bssv.moveColumnRight",
+                "command": "prov.moveColumnRight",
                 "key": "ctrl+alt+shift+right",
-                "when": "editorLangId == bssv && editorTextFocus"
+                "when": "editorLangId == prov && editorTextFocus"
             }
         ]
     },

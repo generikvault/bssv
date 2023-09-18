@@ -6,12 +6,12 @@ import * as col from './col';
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(
-		vscode.languages.registerDocumentFormattingEditProvider('bssv', new Formatter()),
-		vscode.languages.registerDocumentSymbolProvider({ language: 'bssv' }, new Provider()),
+		vscode.languages.registerDocumentFormattingEditProvider('prov', new Formatter()),
+		vscode.languages.registerDocumentSymbolProvider({ language: 'prov' }, new Provider()),
 		new StatusBarCollInfo(),
-		inEditor("bssv.selectColumn", col.selectCol),
-		inEditor("bssv.moveColumnLeft", col.moveColLeft),
-		inEditor("bssv.moveColumnRight", col.moveColRight),
+		inEditor("prov.selectColumn", col.selectCol),
+		inEditor("prov.moveColumnLeft", col.moveColLeft),
+		inEditor("prov.moveColumnRight", col.moveColRight),
 	);
 }
 

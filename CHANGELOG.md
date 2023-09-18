@@ -1,6 +1,6 @@
 # Change Log
 
-All notable changes to the "bssv" extension will be documented in this file.
+All notable changes to the "prov" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
@@ -28,7 +28,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ### Fixed
 
-- Added missing symbol for last bssv block
+- Added missing symbol for last prov block
 
 ## [1.1.0] - 2020-06-27
 

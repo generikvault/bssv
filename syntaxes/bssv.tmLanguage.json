@@ -1,12 +1,12 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "bssv",
+	"name": "prov",
 	"patterns": [
 		{
 			"include": "#comment"
 		},
 		{
-			"include": "#block"
+			"include": "#table"
 		},
 		{
 			"include": "#data"
@@ -19,23 +19,23 @@
 		"comment": {
 			"patterns": [
 				{
-					"name": "comment.line.double-slash.bssv",
+					"name": "comment.line.double-slash.prov",
 					"begin": "\\s*//",
 					"beginCaptures": {
 						"0": {
-							"name": "punctuation.definition.comment.bssv"
+							"name": "punctuation.definition.comment.prov"
 						}
 					},
 					"end": "$"
 				}
 			]
 		},
-		"block": {
-			"name": "constant.other.block.bssv",
+		"table": {
+			"name": "constant.other.table.prov",
 			"begin": "^\\[([^\\]]+)\\]",
 			"beginCaptures": {
 				"1": {
-					"name": "markup.bold.caption.bssv"
+					"name": "markup.bold.caption.prov"
 				}
 			},
 			"end": "$",
@@ -51,8 +51,31 @@
 				}
 			]
 		},
+		"header": {
+			"name": "constant.other.data.prov",
+			"begin": "^(?!\\[)(?=.)",
+			"end": "$",
+			"patterns": [
+				{
+					"include": "#comment"
+				},
+				{
+					"include": "#column"
+				},
+				{
+					"include": "#seperator"
+				},
+				{
+					"include": "#invalid"
+				}
+			]
+		},
+		"column": {
+			"name": "markup.bold.caption.prov",
+			"match": "(?!\\s)(\\s*([^;\\s/]|/(?!/))+)+"
+		},
 		"data": {
-			"name": "constant.other.data.bssv",
+			"name": "constant.other.data.prov",
 			"begin": "^(?!\\[)(?=.)",
 			"end": "$",
 			"patterns": [
@@ -71,18 +94,18 @@
 			]
 		},
 		"strings": {
-			"name": "string.unquoted.bssv",
+			"name": "string.unquoted.prov",
 			"match": "(?!\\s)(\\s*([^;\\s/]|/(?!/))+)+"
 		},
 		"seperator": {
-			"name": "keyword.operator.bssv",
+			"name": "keyword.operator.prov",
 			"match": "\\s*;\\s*"
 		},
 		"invalid": {
 			"comment": "invalid",
 			"match": ".*",
-			"name": "invalid.illegal.unknown.bssv"
+			"name": "invalid.illegal.unknown.prov"
 		}
 	},
-	"scopeName": "source.bssv"
+	"scopeName": "source.prov"
 }

@@ -24,7 +24,7 @@ export default class Provider implements vscode.DocumentSymbolProvider {
 
             if (name !== "")
                 symbols.push(new vscode.DocumentSymbol(name,
-                    'BSSV Block',
+                    'PROV Block',
                     vscode.SymbolKind.Class,
                     new vscode.Range(new vscode.Position(start, 0), last),
                     new vscode.Range(new vscode.Position(start, 1), new vscode.Position(start, 1 + name.length))))
@@ -36,7 +36,7 @@ export default class Provider implements vscode.DocumentSymbolProvider {
         }
         if (name !== "")
             symbols.push(new vscode.DocumentSymbol(name,
-                'BSSV Block',
+                'PROV Block',
                 vscode.SymbolKind.Class,
                 new vscode.Range(new vscode.Position(start, 0), last),
                 new vscode.Range(new vscode.Position(start, 1), new vscode.Position(start, 1 + name.length))))
